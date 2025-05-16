@@ -9,7 +9,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
-    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js" defer></script>
     <script src="app.js" defer></script>
   </head>
   <body>
@@ -17,20 +17,14 @@
       <h1>Vue Styling</h1>
     </header>
     <section id="assignment">
-      <!-- 1) Fetch the user input and use it as a CSS class -->
-      <!-- The entered class should be added to the below paragraph -->
-      <input type="text" />
-      <!-- (available classes: "user1", "user2") -->
-      <p>
+      <input type="text" @keydown.enter="applyStyle" @input="setStyle"/>
+      <p :class='style' :style='{display: isVisible ? "block" : "none"}'>
         Style me!
       </p>
-      <button>Toggle Paragraph</button>
-      <!-- 2) Use the "visible" and "hidden" classes to show/ hide the above paragraph -->
-      <!-- Clicking the button should toggle between the two options -->
-
+      <button @click="toggleView">Toggle Paragraph</button>
       <!-- 3) Add dynamic inline styling to the below paragraph and let the user enter a background-color -->
-      <input type="text" />
-      <p>Style me inline!</p>
+      <input type="text" @input='setBgColor'>
+      <p :style='{backgroundColor: bg}'>Style me inline!</p>
     </section>
   </body>
 </html>
