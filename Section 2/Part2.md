@@ -101,3 +101,16 @@
 
 * Renders the element **only once**.
 * Skips all future reactivity/updates for this part of the DOM.
+
+
+### 🔁 `v-on` → `@` (for event listeners)
+
+| Full Syntax           | Shorthand         | Example                         |
+| --------------------- | ----------------- | ------------------------------- |
+| `v-on:click="doIt"`   | `@click="doIt"`   | `<button @click="doIt">`        |
+| `v-on:submit.prevent` | `@submit.prevent` | `<form @submit.prevent="send">` |
+| `v-on:keyup.enter`    | `@keyup.enter`    | `<input @keyup.enter="go">`     |
+
+➡️ **Use `@` instead of `v-on:`** to make your code shorter and cleaner.
+
+---

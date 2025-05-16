@@ -114,3 +114,7 @@ methods: {
 ```
 
 * In Vue methods, `this` refers to the component instance and allows access to `data`, `methods`, etc.
+
+
+
+
