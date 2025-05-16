@@ -9,7 +9,8 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
-    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js" defer></script>
+
     <script src="app.js" defer></script>
   </head>
   <body>
@@ -18,11 +19,21 @@
     </header>
     <section id="user-goals">
       <h2>My course goals</h2>
-      <input type="text" />
-      <button>Add Goal</button>
-      <p>No goals have been added yet - please start adding some!</p>
+      <input v-model="enteredValue" type="text" />
+      <button @click="addGoal">Add Goal</button>
+      <p v-show="goals.length === 0">
+        No goals have been added yet - please start adding some!
+      </p>
+      <ul v-show="goals.length > 0">
+        <li v-for="(goal, idx ) in goals" :key="goal + idx">
+          Goal {{ idx + 1 }}: {{ goal }}
+          <button @click="removeGoal(idx)">Remove</button>
+        </li>
+      </ul>
       <ul>
-        <li>Goal</li>
+        <li v-for="(value, key) in userData" :key="key">
+          {{ key }}: {{ value }}
+        </li>
       </ul>
     </section>
   </body>
